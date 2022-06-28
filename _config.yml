@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: yanys
+title: yanyl
 brief-intro: 前端工程师
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://yanys-github.github.io" # the base hostname & protocol for your site
@@ -15,11 +15,11 @@ permalink: /:year/:month/:day/:title/
 
 # other links
  
-github_username: yanys-github
-email: yanysmail@gmail.com
+github_username: yanyl2022
+email: yylmail2022
 
 
-description_footer: 本站记录我的技术学习过程！
+description_footer: 菜鸟的学习之路！
 
 
 # statistic analysis 统计代码
