@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>浏览器跨域</title>
+    <meta name="description" content="浏览器跨域  跨域问题的来源  如何判定跨域  限制范围  跨域的解决方案  参考资料">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2022/05/31/browser/">
+    <link rel="alternate" type="application/rss+xml" title="yanys" href="http://localhost:4000/feed.xml ">
+
+
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">yanys-blog</a>
+        
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                       主页
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                           归档
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                           技术
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                           资料
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                           关于
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>浏览器跨域</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2022-05-31
+            </div>
+
+            <div class="label-card">
+                yanys
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  
+  
+    
+        <a href="/category/#浏览器" title="Category: 浏览器" rel="category">浏览器</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  
+  
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#1跨域问题的来源" id="markdown-toc-1跨域问题的来源">1.跨域问题的来源</a></li>
+  <li><a href="#2如何判定跨域" id="markdown-toc-2如何判定跨域">2.如何判定跨域</a></li>
+  <li><a href="#3限制范围" id="markdown-toc-3限制范围">3.限制范围</a></li>
+  <li><a href="#4跨域的解决方案" id="markdown-toc-4跨域的解决方案">4.跨域的解决方案</a>    <ul>
+      <li><a href="#41cors-cross-origin-resource-sharing" id="markdown-toc-41cors-cross-origin-resource-sharing">4.1CORS (Cross-Origin Resource Sharing)</a></li>
+      <li><a href="#42-反向代理" id="markdown-toc-42-反向代理">4.2 反向代理</a></li>
+      <li><a href="#43-jsonp" id="markdown-toc-43-jsonp">4.3 JSONP</a></li>
+      <li><a href="#44-非常用方式" id="markdown-toc-44-非常用方式">4.4 非常用方式</a></li>
+    </ul>
+  </li>
+  <li><a href="#参考资料" id="markdown-toc-参考资料">参考资料</a></li>
+</ul>
+
+<p>浏览器跨域</p>
+
+<ul>
+  <li>跨域问题的来源</li>
+  <li>如何判定跨域</li>
+  <li>限制范围</li>
+  <li>跨域的解决方案</li>
+  <li>参考资料<br />
+<!--more--></li>
+</ul>
+
+<h1 id="1跨域问题的来源">1.跨域问题的来源</h1>
+<p>跨域问题的来源是浏览器为了<strong>请求安全</strong>而引入的基于<strong>同源策略（Same-origin policy）</strong>的安全特性。<br />
+同源策略是浏览器一个非常重要的安全策略，基于这个策略可以限制非同源的内容与当前页面进行交互，<br />
+从而减少页面被攻击的可能性。
+需要注意的是<strong>跨域是浏览器的限制</strong>，实际请求已经正常发出和响应了。</p>
+
+<h1 id="2如何判定跨域">2.如何判定跨域</h1>
+<p>一个 origin 由<strong>协议（Protocol）、主机名（Host）和端口（Port）</strong>组成，这三块也是同源策略的判定条件，只有当<strong>协议、主机名和端口</strong>都相同时，浏览器才判定两者是同源关系，否则即为跨域。</p>
+
+<h1 id="3限制范围">3.限制范围</h1>
+<p>随着互联网的发展，”同源政策”越来越严格。目前，如果非同源，共有三种行为受到限制。</p>
+
+<p>无法获取非同源网页的 cookie、localstorage 和 indexedDB。
+无法访问非同源网页的 DOM （iframe）。
+无法向非同源地址发送 AJAX 请求 或 fetch 请求（可以发送，但浏览器拒绝接受响应）。</p>
+
+<h1 id="4跨域的解决方案">4.跨域的解决方案</h1>
+<p>前端常见的跨域解决方案有 CORS、反向代理（Reverse Proxy）、JSONP 等。</p>
+
+<h2 id="41cors-cross-origin-resource-sharing">4.1CORS (Cross-Origin Resource Sharing)</h2>
+<p>CORS 是目前最为广泛的解决跨域问题的方案。方案依赖服务端/后端在响应头中添加 Access-Control-Allow-* 头，告知浏览器端通过此请求。</p>
+
+<p><strong>涉及到的端</strong></p>
+
+<p>CORS 只需要服务端/后端支持即可，不涉及前端改动。</p>
+
+<p><strong>具体实现方式</strong></p>
+
+<p>CORS 将请求分为<strong>简单请求（Simple Requests）</strong>和<strong>需预检请求（Preflighted requests）</strong>，不同场景有不同的行为：</p>
+
+<p><strong>简单请求</strong></p>
+
+<p>不会触发预检请求的称为简单请求。当请求满足以下条件时就是一个简单请求：</p>
+
+<p>请求方法：GET、HEAD、POST。
+请求头：Accept、Accept-Language、Content-Language、Content-Type。
+Content-Type 仅支持：application/x-www-form-urlencoded、multipart/form-data、text/plain。</p>
+
+<p><strong>需预检请求</strong></p>
+
+<p>当一个请求不满足以上简单请求的条件时，浏览器会自动向服务端发送一个<strong>OPTIONS</strong> 请求，通过服务端返回的 Access-Control-Allow-* 判定请求是否被允许。</p>
+
+<p>CORS 引入了以下几个以 Access-Control-Allow-* 开头：</p>
+
+<p>Access-Control-Allow-Origin 表示允许的来源
+Access-Control-Allow-Methods 表示允许的请求方法
+Access-Control-Allow-Headers 表示允许的请求头
+Access-Control-Allow-Credentials 表示允许携带认证信息</p>
+
+<p>当请求符合响应头的这些条件时，浏览器才会发送并响应正式的请求。</p>
+
+<h2 id="42-反向代理">4.2 反向代理</h2>
+<p>反向代理解决跨域问题的方案依赖同源的服务端对请求做一个转发处理，将请求从跨域请求转换成同源请求。</p>
+
+<p><strong>涉及到的端</strong></p>
+
+<p>反向代理只需要服务端/后端支持，几乎不涉及前端改动，只用切换接口即可。</p>
+
+<p><strong>具体实现方式</strong></p>
+
+<p>反向代理的实现方式为在页面同域下配置一套反向代理服务，页面请求同域的服务端，服务端请求上游的实际的服务端，之后将结果返回给前端。</p>
+
+<h2 id="43-jsonp">4.3 JSONP</h2>
+<p>JSONP 是一个相对古老的跨域解决方案，只支持 GET 请求。主要是利用了浏览器加载 JavaScript 资源文件时不受同源策略的限制而实现跨域获取数据。</p>
+
+<p><strong>涉及到的端</strong></p>
+
+<p>JSONP 需要服务端和前端配合实现。</p>
+
+<p><strong>具体实现方式</strong></p>
+
+<p>JSONP 的原理是利用了浏览器加载 JavaScript 资源文件时不受同源策略的限制而实现的。具体流程如下：</p>
+
+<p>1.全局注册一个函数，例如：window.getHZFEMember = (num) =&gt; console.log(‘HZFE Member: ‘ + num);。
+2.构造一个请求 URL，例如：https://hzfe.org/api/hzfeMember?callback=getHZFEMember。
+3.生成一个 <code class="language-plaintext highlighter-rouge">&lt;script&gt; 并把 src 设为上一步的请求 URL 并插入到文档中，如 &lt;script src="https://hzfe.org/api/hzfeMember?callback=getHZFEMember" /&gt;。</code>
+4.服务端构造一个 JavaScript 函数调用表达式并返回，例如：getHZFEMember(17)。
+5.浏览器加载并执行以上代码，输出 HZFE Member: 17。</p>
+
+<h2 id="44-非常用方式">4.4 非常用方式</h2>
+<p><strong>postMessage</strong>
+即在两个 origin 下分别部署一套页面 A 与 B，A 页面通过 iframe 加载 B 页面并监听消息，B 页面发送消息。
+<strong>window.name</strong>
+主要是利用 window.name 页面跳转不改变的特性实现跨域，即 iframe 加载一个跨域页面，设置 window.name，跳转到同域页面，可以通过 $(‘iframe’).contentWindow.name 拿到跨域页面的数据。
+<strong>document.domain</strong>
+可将相同一级域名下的子域名页面的 document.domain 设置为一级域名实现跨域。
+可将同域不同端口的 document.domain 设置为同域名实现跨域（端口被置为 null）。</p>
+
+<h1 id="参考资料">参考资料</h1>
+<ul>
+  <li>https://febook.hzfe.org/awesome-interview/book1/browser-cross-origin</li>
+  <li>https://juejin.cn/post/6844903816060469262</li>
+</ul>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+        
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2022/05/25/jekyll/">安装jekyll及本地博客搭建(windows)</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <!-- <h2 id="comments">Comments</h2>
+        
+
+
+ -->
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <!-- <li><a href="#comments">Comments</a></li> -->
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             本站记录我的技术学习过程！ 
+        </p>
+        <!-- <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/yanys-github" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:yanysmail@gmail.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>    
+        </p> -->
+       
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            
+        </p>
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" ><img src="../pictures/jiantou.png">
+        
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

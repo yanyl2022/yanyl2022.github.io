@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>安装jekyll及本地博客搭建(windows)</title>
+    <meta name="description" content="windows系统上安装jekyll步骤  安装jekyll  本地博客搭建  提交本地博客到github仓库中">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2022/05/25/jekyll/">
+    <link rel="alternate" type="application/rss+xml" title="yanys" href="http://localhost:4000/feed.xml ">
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+    "HTML-CSS": {
+      linebreaks: { automatic: true, width: "container" }
+    }
+});
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">yanys-blog</a>
+        
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                       主页
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                           归档
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                           技术
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                           资料
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                           关于
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>安装jekyll及本地博客搭建(windows)</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2022-05-25
+            </div>
+
+            <div class="label-card">
+                yanys
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  
+  
+    
+        <a href="/category/#jekyll" title="Category: jekyll" rel="category">jekyll</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  
+  
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#安装jekyll" id="markdown-toc-安装jekyll">安装jekyll</a>    <ul>
+      <li><a href="#步骤" id="markdown-toc-步骤">步骤</a></li>
+    </ul>
+  </li>
+  <li><a href="#本地博客搭建" id="markdown-toc-本地博客搭建">本地博客搭建</a>    <ul>
+      <li><a href="#步骤-1" id="markdown-toc-步骤-1">步骤</a></li>
+      <li><a href="#常见错误" id="markdown-toc-常见错误">常见错误</a></li>
+      <li><a href="#补充" id="markdown-toc-补充">补充</a></li>
+    </ul>
+  </li>
+  <li><a href="#提交本地博客到github仓库中" id="markdown-toc-提交本地博客到github仓库中">提交本地博客到github仓库中</a>    <ul>
+      <li><a href="#步骤-2" id="markdown-toc-步骤-2">步骤</a></li>
+      <li><a href="#补充-1" id="markdown-toc-补充-1">补充</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>windows系统上安装jekyll步骤</p>
+
+<ul>
+  <li>安装jekyll</li>
+  <li>本地博客搭建</li>
+  <li>提交本地博客到github仓库中</li>
+</ul>
+
+<h1 id="安装jekyll">安装jekyll</h1>
+
+<h2 id="步骤">步骤</h2>
+<p>1：先安装ruby环境，建议选择Ruby+Devkit版本。</p>
+
+<p>2：其次在命令行运行ridk install，运行后命令行会显示要安装的3种MSYS2 构建工具，选择其中一项即可。</p>
+
+<p>3：打开一个新的命令提示符窗口，使对PATH环境变量的更改生效。输入以下命令gem install jekyll bundler用于安装 Jekyll 和 Bundler</p>
+
+<p>5：检查 Jekyll 是否已正确安装：jekyll -v</p>
+
+<p>至此安装成功。</p>
+
+<h1 id="本地博客搭建">本地博客搭建</h1>
+
+<h2 id="步骤-1">步骤</h2>
+<p>1：创建一个新的 Jekyll 站点在./myblog，命令如下：jekyll new myblog。</p>
+
+<p>2: 切换到新目录，cd myblog。</p>
+
+<p>3：下载依赖 Bundle install。</p>
+
+<p>4:构建站点并使其在本地服务器上可用，bundle exec jekyll serve。</p>
+
+<p>5:浏览到http://localhost:4000</p>
+
+<h2 id="常见错误">常见错误</h2>
+<p>1：如果您使用的是 Ruby 3.0.0 或更高版本，第 4 步可能会失败。webrick您可以通过添加到您的依赖项来修复它：bundle add webrick，否则会出现以下错误。
+<img src="/pictures/1.png" alt="" /></p>
+
+<p>2:出现错误<img src="/pictures/2.png" alt="" /></p>
+
+<p>解决方法：
+修改gemfile文件里的<img src="/pictures/3.png" alt="" />为</p>
+
+<p>gem ‘wdm’, ‘~&gt; 0.1.1’, :install_if =&gt; Gem.win_platform?
+即可解决问题。</p>
+
+<h2 id="补充">补充</h2>
+<p>1: 更改_posts文件夹里的博客内容时无需重启系统，刷新网页即可更新，</p>
+
+<p>2: 更改config.yml文件的内容时需重启系统 即输入bundle exec jekyll serve，</p>
+
+<h1 id="提交本地博客到github仓库中">提交本地博客到github仓库中</h1>
+
+<h2 id="步骤-2">步骤</h2>
+<p>建议在github上新建仓库后根据相关提示进行</p>
+
+<h2 id="补充-1">补充</h2>
+<p>1：GitHub不再支持密码验证解决方案：SSH免密与Token登录配置，建议仓库地址以ssl的形式。</p>
+
+<p>2：给GitHub账号设置SSH key，参考博客：
+https://www.cnblogs.com/dotnet261010/p/9264162.html</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+        
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2022/05/31/browser/">浏览器跨域</a></p>
+        
+    </div>
+</div>
+
+
+        <!-- <h2 id="comments">Comments</h2>
+        
+
+
+ -->
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <!-- <li><a href="#comments">Comments</a></li> -->
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             本站记录我的技术学习过程！ 
+        </p>
+        <!-- <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/yanys-github" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:yanysmail@gmail.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>    
+        </p> -->
+       
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            
+        </p>
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" ><img src="../pictures/jiantou.png">
+        
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>
